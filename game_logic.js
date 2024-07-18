@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let boxes = Array.from(document.getElementsByClassName('box'));
 
     let winnerIndicator = getComputedStyle(document.body).getPropertyValue('--winning-blocks');
-
+/* Constant characters used during the game X and O */
     const O_TEXT = "O";
     const X_TEXT = "X";
     let currentPlayer = X_TEXT;
@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             spaces[id] = currentPlayer;
             e.target.innerText = currentPlayer;
 
-            if (playerHasWon() !== false) {
+            if (PlayerWon() !== false) {
                 playerText.innerHTML = `${currentPlayer} has won!`;
-                let winning_blocks = playerHasWon();
+                let winning_blocks = PlayerWon();
 
                 winning_blocks.map(box => boxes[box].style.backgroundColor = winnerIndicator);
                 return;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT;
         }
     }
-
+/*The combos for any of the winning possibilities*/
     const winningCombos = [
         [0, 1, 2],
         [3, 4, 5],
@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 4, 8],
         [2, 4, 6]
     ];
-
-    function playerHasWon() {
+/* The function is the player won*/
+    function PlayerWon() {
         for (const condition of winningCombos) {
             let [a, b, c] = condition;
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return false;
     }
-
+/* Restarting the game at any point or after finishing the*/
     function restart() {
         console.log('Restart button clicked');
         spaces.fill(null);

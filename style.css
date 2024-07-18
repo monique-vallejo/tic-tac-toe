@@ -78,7 +78,7 @@ h1 {
 .box:nth-child(6) ~ .box {
     border-bottom: none;
 }
-
+/** Restart Button CSS */
 .restartBtn {
    font-family: "Silkscreen", sans-serif;
     display: flex;
@@ -186,7 +186,7 @@ h1 {
 .restartBtn:hover {
   box-shadow: inset 0px 0px 25px #a813ff;
 }
-
+/* Background of stars */
   .full-wh {
     position: absolute;
     top: 0px;
@@ -332,7 +332,7 @@ h1 {
         transform: translateY(-2000px);
     }
 }
-
+/* social icons for github and linkedin */
 ul {
     list-style: none;
   }
